@@ -1,0 +1,26 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Streamlit
+.streamlit/credentials.toml
+
+# Database
+# Ignore actual databases to prevent overriding production data on fetch,
+# but we will track a template if needed.
+*.db
+*.sqlite3
+
+# OS generated files
+.DS_Store
+Thumbs.db
