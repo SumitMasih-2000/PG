@@ -1,15 +1,25 @@
 [theme]
+# Primary accent color for interactive elements (matches Accent color #2563EB)
 primaryColor = "#2563EB"
+
+# Background color for the main content area (matches Background #F8FAFC)
 backgroundColor = "#F8FAFC"
+
+# Background color used for the sidebar and most interactive widgets (matches Cards White)
 secondaryBackgroundColor = "#FFFFFF"
+
+# Color used for almost all text (matches Text #111827)
 textColor = "#111827"
+
+# Font family for all text in the app
 font = "sans serif"
 
 [server]
+# Ensures the app runs seamlessly on Streamlit Community Cloud without exposing errors heavily to users
+headless = true
 enableCORS = false
 enableXsrfProtection = true
-maxUploadSize = 10
 
-[client]
-toolbarMode = "minimal"
+[layout]
+# Use wide mode for a modern web app feel
 showSidebarNavigation = false
