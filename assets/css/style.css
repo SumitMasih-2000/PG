@@ -1,0 +1,185 @@
+/* ==========================================================================
+   Google Fonts Import
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ==========================================================================
+   CSS Variables (Design System)
+   ========================================================================== */
+:root {
+    /* Color Palette */
+    --primary: #0F172A;
+    --secondary: #1E293B;
+    --accent: #2563EB;
+    --success: #22C55E;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+    --background: #F8FAFC;
+    --surface-white: #FFFFFF;
+    --border: #E5E7EB;
+    --text-main: #111827;
+    --text-sub: #6B7280;
+
+    /* Fonts */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-ui: 'Manrope', sans-serif;
+
+    /* Shadows & Radii */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+    --radius-full: 9999px;
+}
+
+/* ==========================================================================
+   Global Resets & Streamlit Overrides
+   ========================================================================== */
+/* Hide default Streamlit elements for a custom look */
+#MainMenu {visibility: hidden;}
+header {visibility: hidden;}
+footer {visibility: hidden;}
+.stDeployButton {display: none;}
+
+/* Global Typography */
+html, body, [class*="css"] {
+    font-family: var(--font-body);
+    color: var(--text-main);
+    background-color: var(--background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading) !important;
+    color: var(--primary) !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.025em;
+}
+
+/* ==========================================================================
+   Custom UI Components
+   ========================================================================== */
+
+/* Glassmorphism Cards */
+.glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Modern Buttons */
+.stButton > button {
+    font-family: var(--font-ui) !important;
+    font-weight: 600 !important;
+    border-radius: var(--radius-full) !important;
+    padding: 0.5rem 1.5rem !important;
+    transition: all 0.2s ease-in-out !important;
+    border: none !important;
+}
+
+/* Primary Button (Streamlit default behavior override) */
+.stButton > button[kind="primary"] {
+    background-color: var(--accent) !important;
+    color: white !important;
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2) !important;
+}
+
+.stButton > button[kind="primary"]:hover {
+    background-color: #1D4ED8 !important;
+    box-shadow: 0 6px 8px rgba(37, 99, 235, 0.3) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Secondary Button */
+.stButton > button[kind="secondary"] {
+    background-color: var(--surface-white) !important;
+    color: var(--primary) !important;
+    border: 1px solid var(--border) !important;
+}
+
+.stButton > button[kind="secondary"]:hover {
+    border-color: var(--accent) !important;
+    color: var(--accent) !important;
+}
+
+/* Rounded Inputs */
+.stTextInput > div > div > input,
+.stSelectbox > div > div > div,
+.stNumberInput > div > div > input {
+    border-radius: var(--radius-md) !important;
+    border: 1px solid var(--border) !important;
+    padding: 0.5rem 1rem !important;
+    font-family: var(--font-ui) !important;
+    transition: border-color 0.2s ease !important;
+    background-color: var(--surface-white) !important;
+}
+
+.stTextInput > div > div > input:focus,
+.stSelectbox > div > div > div:focus,
+.stNumberInput > div > div > input:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2) !important;
+}
+
+/* Status Badges */
+.badge-verified {
+    background-color: rgba(34, 197, 94, 0.1);
+    color: var(--success);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+/* Sidebar Customization */
+[data-testid="stSidebar"] {
+    background-color: var(--primary) !important;
+    border-right: none !important;
+}
+[data-testid="stSidebar"] * {
+    color: var(--surface-white) !important;
+}
+
+/* Metrics Dashboard Styling */
+[data-testid="stMetricValue"] {
+    font-family: var(--font-heading) !important;
+    color: var(--accent) !important;
+    font-weight: 700 !important;
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+}
+
+/* Loader Override */
+.stSpinner > div > div {
+    border-top-color: var(--accent) !important;
+}
